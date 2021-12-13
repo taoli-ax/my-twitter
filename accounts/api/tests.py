@@ -1,4 +1,4 @@
-from django.test import TestCase
+from testing.testcases import TestCase
 from rest_framework.test import APIClient
 from django.contrib.auth.models import User
 # Create your tests here.
@@ -10,16 +10,17 @@ LOGIN_STATUS_URL = '/api/accounts/login_status/'
 
 
 class AccountApiTests(TestCase):
+
     def setUp(self):
         self.client = APIClient()
-        self.user = self.createUser(
+        self.user = self.create_user(
             username='admin008',
             email='admin008@outlook.com',
             password='correct password',
         )
 
-    def createUser(self,username,email,password):
-        return User.objects.create_user(username,email,password)
+    # def createUser(self,username,email,password):
+    #     return User.objects.create_user(username,email,password)
 
     def test_login(self):
         # testcase:用post而不是get
