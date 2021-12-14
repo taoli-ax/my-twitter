@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from rest_framework import routers
 from accounts.api.views import UserViewSet,AccountViewSet
+from friendship.api.views import FriendshipViewSet
 from tweets.api.views import TweetViewSet
 import debug_toolbar
 
@@ -24,6 +25,7 @@ router = routers.DefaultRouter()
 router.register(r'api/users',UserViewSet)
 router.register(r'api/accounts',AccountViewSet,basename='accounts')
 router.register(r'api/tweets',TweetViewSet,basename='tweets')
+router.register(r'api/friendship',FriendshipViewSet,basename='friendship')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -23,7 +23,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class AccountViewSet(viewsets.ViewSet):
-    serializer_class = LoginSerializer
+    serializer_class = SignupSerializer
 
     @action(methods=['GET'], detail=False)
     def login_status(self, request):
