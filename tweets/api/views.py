@@ -35,6 +35,7 @@ class TweetViewSet(viewsets.GenericViewSet):
             },status=400)
         # trigger create method in TweetSerializerForCreate
         tweet = serializer.save()
+        # 创建之后推送给followers
         NewsFeedService.fanout_out_followers(tweet)
         return Response(TweetSerializer(tweet).data,status=201)
 
