@@ -5,6 +5,7 @@ from friendship.models import Friendship
 class FriendshipService(object):
     @classmethod
     def get_followers(cls,user):
+        # user是tweet的owner,返回owner的followers
         # 错误的写法两种
         # 正确的写法一
         friendships = Friendship.objects.filter(to_user=user)
